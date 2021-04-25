@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+    {% block content %}
+            <form action="{% url 'search' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="name">
+                <input type="submit" name="submit" value="Search">
+            </form>
+
+
+        <div class="site-section">
+          <div class="container">
+            <div class="row">
+                {% for item in results %}
+              <div class="col-sm-6 col-lg-4 text-center item mb-4">
+                <a href="/shop/{{ item.slug }}"> <img src="{{ item.image_small.url }}" alt="Image"></a>
+                <h3 class="text-dark"><a href="/shop/{{ item.slug }}">{{ item.name }}</a></h3>
+                <p class="price"> ${{ item.price }}</p>
+                <p><a href="{% url "cart:cart_add" item.id %}" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+              </div>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+    {% endblock %}

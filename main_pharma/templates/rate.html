@@ -1,0 +1,18 @@
+
+    <div class="site-section bg-secondary bg-image" style="background-image: url('');">
+      <div class="container">
+        <div class="row align-items-stretch">
+            {% for item in rate %}
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('{{ item.photo.url }}');">
+              <div class="banner-1-inner align-self-center">
+                <h2>{{ item.title }}</h2>
+                <p>{{ item.desc }}
+                </p>
+              </div>
+            </a>
+          </div>
+            {% endfor %}
+        </div>
+      </div>
+    </div>

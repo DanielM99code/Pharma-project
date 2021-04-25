@@ -1,0 +1,23 @@
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="title-section text-center col-12">
+            <h2 class="text-uppercase">Popular Products</h2>
+          </div>
+        </div>
+        <div class="row">
+          {% for item in products_pop %}
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <a href="/shop/{{ item.slug }}"> <img src={{ item.image_small.url }} alt="Image"></a>
+            <h3 class="text-dark"><a href="/shop/{{ item.slug }}">{{ item.name }}</a></h3>
+            <p class="price"> $ {{ item.price }}</p>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+            <a href="{% url 'shop_page_view' %}" class="btn btn-primary px-4 py-3">View All Products</a>
+          </div>
+        </div>
+      </div>
+    </div>

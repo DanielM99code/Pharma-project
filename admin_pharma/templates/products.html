@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Products</h3>
+        </div>
+    <div class="row">
+        <div class='col-md-6 centered'>
+            <a href='{% url "products_add" %}'>
+                <button type="button" class="btn btn-primary btn-sm">
+                    New Product
+                </button>
+            </a>
+        </div>
+    </div>
+        <hr/>
+        <div class="col-md-10 col-md-offset-1">
+            {% for item in product %}
+            <div class="row">
+                <div class="col-md-3">
+                    <a href='{% url "products_delete" pk=item.pk %}'>
+                        <button type="button" class="btn btn-primary btn-sm">Delete</button>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href='{% url "products_update" pk=item.pk %}'>
+                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                    </a>
+                </div>
+                <div class="col-md-3">Name: {{ item.name }}</div>
+                <div class="col-md-3">Order in Shop: {{ item.shop_order }}</div>
+                <div class="col-md-3">Item is visible: {{ item.is_visible }}</div>
+                <div class="col-md-3">Price: {{ item.price }}$</div>
+                <div class="col-md-3">Item Category{{ item.category }}</div>
+                <div class="col-md-3">Material: {{ item.material }}</div>
+                <div class="col-md-3">Packaging: {{ item.packaging }}</div>
+                <div class="col-md-3">HPIS Code: {{ item.hpis_code }}</div>
+                <div class="col-md-3">Healthcare Provider require: {{ item.hc_provider }}</div>
+                <div class="col-md-3">Latex Free: {{ item.latex_free }}</div>
+                <div class="col-md-3">Medication Route: {{ item.med_route }}</div>
+                <div class="col-md-3">Order in Shop: {{ item.shop_order }}</div>
+                <div class="col-md-3">New Item: {{ item.is_new }}</div>
+                <div class="col-md-3">Popular Item: {{ item.is_popular }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-9"><p>Description: {{ item.description }}</p></div>
+                <div class="team-img"><img src={{ item.image_small.url }} alt="..."></div>
+            </div>
+            <hr/>
+            {% endfor %}
+    </div>
+{% endblock %}

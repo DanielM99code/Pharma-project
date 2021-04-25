@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Your shopping cart{% endblock %}
+
+{% block content %}
+    <h1>Your Cart</h1>
+    <table class="cart">
+        <tbody>
+            {% for item in cart %}
+                {% with product=item.product %} 
+                    <tr>
+                        <td>
+                            <a href="{{ product.get_absolute_url }}">
+                                <img src="{{ product.image_small.url }}">
+                            </a>
+                        </td>
+                        <td>
+                            <p>{{ product.name }}</p>
+                            <p>{{ item.quantity }} x {{ item.price }} $ = {{ item.total_price }} $</p>
+                        </td>
+                        <td>
+                            <a href="{% url "cart:cart_remove" product.id %}">Delete</a>
+                        </td>
+                    </tr>
+                {% endwith %}
+            {% endfor %}
+            <tr class="total">
+                <td>
+                    Total Summ
+                </td>
+                <td>
+                </td>
+                <td class="num">
+                    {{ cart.get_total_price }} $;
+                </td>
+            </tr> 
+        </tbody>
+    </table>
+    <p class="text-right">
+        <a href="{% url 'shop_page_view' %}" class="button light">Proceed with shopping</a>
+        <a href="{% url "orders:order_create" %}" class="button">Сheckout</a>
+    </p>
+{% endblock %}

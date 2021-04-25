@@ -1,0 +1,32 @@
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+
+            <div class="block-7">
+              <h3 class="footer-heading mb-4">{{ aboutus.title }}</h3>
+              <p>{{ aboutus.desc }}</p>
+            </div>
+
+          </div>
+          <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
+            <h3 class="footer-heading mb-4">Store</h3>
+            <ul class="list-unstyled">
+              {% for item in categories %}
+              <li><a href="#">{{ item.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="block-5 mb-5">
+              <h3 class="footer-heading mb-4">Contact Info</h3>
+              <ul class="list-unstyled">
+                <li class="address">{{ address.address }}</li>
+                <li class="phone"><a href="tel://{{ phone.phone }}">{{ phone.phone }}</a></li>
+                <li class="email">{{ email.email }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+

@@ -1,0 +1,24 @@
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="title-section text-center col-12">
+            <h2 class="text-uppercase">Testimonials</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 block-3 products-wrap">
+            <div class="nonloop-block-3 no-direction owl-carousel">
+                {% for item in testimonials %}
+              <div class="testimony">
+                <blockquote>
+                  <img src="{{ item.image.url }}" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">
+                  <p>&ldquo;{{ item.quote }}&rdquo;</p>
+                </blockquote>
+                <p>&mdash; {{ item.name }}</p>
+              </div>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
