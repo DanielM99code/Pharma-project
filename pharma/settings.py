@@ -153,5 +153,4 @@ STATICFILES_DIRS = (
 
 CART_SESSION_ID = 'cart'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
