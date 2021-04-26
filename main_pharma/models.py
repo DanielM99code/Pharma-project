@@ -16,8 +16,8 @@ class Product(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     slug = models.SlugField(max_length=200, db_index=True)
-    image_full = models.ImageField(upload_to='products/full/%Y/%m/%d', blank=True)
-    image_small = ResizedImageField(size=[270, 370], upload_to='products/small/%Y/%m/%d', blank=True)
+    image_full = models.ImageField(upload_to='static/products/full/%Y/%m/%d', blank=True)
+    image_small = ResizedImageField(size=[270, 370], upload_to='static/products/small/%Y/%m/%d', blank=True)
     material = models.CharField(max_length=200, blank=True)
     description = models.TextField(blank=True)
     packaging = models.CharField(max_length=10)
@@ -41,7 +41,7 @@ class Product(models.Model):
 
 class Welcome(models.Model):
     title = models.CharField(max_length=30, unique=True)
-    photo = models.ImageField(upload_to='welcome/%Y/%m/%d')
+    photo = models.ImageField(upload_to='static/welcome/%Y/%m/%d')
     desc = models.CharField(max_length=200, unique=True, default='SOME STRING')
 
     def __str__(self):
@@ -75,7 +75,7 @@ class SpecOfferYellow(models.Model):
 class Testimonials(models.Model):
     name = models.CharField(max_length=20, unique=True)
     quote = models.CharField(max_length=200, unique=True, default='SOME STRING')
-    image = models.ImageField(upload_to='testimonials/%Y/%m/%d', blank=True)
+    image = models.ImageField(upload_to='static/testimonials/%Y/%m/%d', blank=True)
 
     def __str__(self):
         return f'{self.name}'
@@ -124,7 +124,7 @@ class AboutUs(models.Model):
 
 class History(models.Model):
     title = models.CharField(max_length=30, unique=True)
-    photo = models.ImageField(upload_to='history/%Y/%m/%d')
+    photo = models.ImageField(upload_to='static/history/%Y/%m/%d')
     desc = models.TextField(blank=True)
 
     def __str__(self):
@@ -143,7 +143,7 @@ class OurTeam(models.Model):
     name = models.CharField(max_length=20, unique=True)
     position = models.CharField(max_length=20)
     desc = models.CharField(max_length=200, unique=True, default='SOME STRING')
-    image = models.ImageField(upload_to='team/%Y/%m/%d', blank=True)
+    image = models.ImageField(upload_to='static/team/%Y/%m/%d', blank=True)
 
     def __str__(self):
         return f'{self.name}, {self.position}'
