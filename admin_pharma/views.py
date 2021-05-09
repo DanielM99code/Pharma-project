@@ -20,44 +20,17 @@ def is_member(user):
 @login_required(login_url='/login/')
 @user_passes_test(is_member)
 def main_admin_view(request):
-    address = Address.objects.filter(is_visible=True)
-    phone = Phone.objects.filter(is_visible=True)
-    email = Email.objects.filter(is_visible=True)
-    aboutus = AboutUs.objects.all()
-    categories = Category.objects.filter(is_visible=True).order_by('category_order')
-    return render(request, 'main_admin.html', context={
-
-        'address': address[0],
-        'phone': phone[0],
-        'email': email[0],
-        'aboutus': aboutus[0],
-        'categories': categories
-
-    })
+    return render(request, 'main_admin.html', context={})
 
 
 @login_required(login_url='/login/')
 @user_passes_test(is_member)
 def list_of_messages(request):
-    address = Address.objects.filter(is_visible=True)
-    phone = Phone.objects.filter(is_visible=True)
-    email = Email.objects.filter(is_visible=True)
-    aboutus = AboutUs.objects.all()
-    categories = Category.objects.filter(is_visible=True).order_by('category_order')
     messages = Message.objects.filter(is_processed=False).order_by('pub_date')
     paginator = Paginator(messages, 2)
     page = request.GET.get('page')
     messages = paginator.get_page(page)
-    return render(request, 'messages.html', context={
-
-        'messages': messages,
-        'address': address[0],
-        'phone': phone[0],
-        'email': email[0],
-        'aboutus': aboutus[0],
-        'categories': categories
-
-    })
+    return render(request, 'messages.html', context={'messages': messages})
 
 
 @login_required(login_url='/login/')
@@ -71,21 +44,7 @@ def update_message(request, pk):
 @user_passes_test(is_member)
 def list_of_products(request):
     product = Product.objects.all()
-    address = Address.objects.filter(is_visible=True)
-    phone = Phone.objects.filter(is_visible=True)
-    email = Email.objects.filter(is_visible=True)
-    aboutus = AboutUs.objects.all()
-    categories = Category.objects.filter(is_visible=True).order_by('category_order')
-    return render(request, 'products.html', context={
-
-        'product': product,
-        'address': address[0],
-        'phone': phone[0],
-        'email': email[0],
-        'aboutus': aboutus[0],
-        'categories': categories
-
-    })
+    return render(request, 'products.html', context={'product': product})
 
 
 class ProductAddView(LoginRequiredMixin, GroupRequiredMixin, SuccessMessageMixin, CreateView):
@@ -122,20 +81,8 @@ class ProductUpdateView(LoginRequiredMixin, GroupRequiredMixin, SuccessMessageMi
 @login_required(login_url='/login/')
 @user_passes_test(is_member)
 def list_of_categories(request):
-    address = Address.objects.filter(is_visible=True)
-    phone = Phone.objects.filter(is_visible=True)
-    email = Email.objects.filter(is_visible=True)
-    aboutus = AboutUs.objects.all()
     category = Category.objects.all
-    return render(request, 'categories.html', context={
-
-        'address': address[0],
-        'phone': phone[0],
-        'email': email[0],
-        'aboutus': aboutus[0],
-        'category': category
-
-    })
+    return render(request, 'categories.html', context={'category': category})
 
 
 class CategoryAddView(LoginRequiredMixin, GroupRequiredMixin, SuccessMessageMixin, CreateView):

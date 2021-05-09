@@ -3,7 +3,11 @@
 {% block title %}Thank you!{% endblock %}
 
 {% block content %}
-    <h1>Thank you!</h1>
-    <p>Your order has been created successfully</p>
-    <p>Order number - <strong>{{ order.id }}</strong>.</p>
+    <div class="row mt-5">
+        <div class="title-section text-center col-12">
+            <h2 class="text-uppercase">Thank you!!</h2>
+            <h3 class="text-uppercase">Your order has been created successfully!</h3>
+            <h3>Order number - <strong>{{ order.id }}</strong></h3>
+        </div>
+    </div>
 {% endblock %}

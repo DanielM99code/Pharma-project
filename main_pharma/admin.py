@@ -6,10 +6,6 @@ admin.site.register(SpecOfferGreen)
 admin.site.register(SpecOfferYellow)
 admin.site.register(Testimonials)
 admin.site.register(Rate)
-admin.site.register(Email)
-admin.site.register(Address)
-admin.site.register(Phone)
-admin.site.register(AboutUs)
 admin.site.register(History)
 admin.site.register(OurOffer)
 admin.site.register(OurTeam)
@@ -32,11 +28,3 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Welcome)
 class WelcomeAdmin(admin.ModelAdmin):
     list_display = ['title', 'desc']
-
-
-
-
-
-
-
-

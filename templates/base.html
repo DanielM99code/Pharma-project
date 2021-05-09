@@ -28,8 +28,6 @@
 
 
   <div class="site-wrap">
-
-
     <div class="site-navbar py-2">
       <div class="container">
         <div class="d-flex align-items-center justify-content-between">
@@ -39,16 +37,20 @@
             </div>
           </div>
           <div class="main-nav d-none d-lg-block">
-            <nav class="site-navigation text-right text-md-center" role="navigation">
+            <nav class="site-navigation text-right text-md-center" role="navigation" >
               <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <li class="active"><a href="{% url 'main_page_view' %}">Home</a></li>
+                <li><a href="{% url 'main_page_view' %}">Home</a></li>
                 <li><a href="{% url 'shop_page_view' %}">Store</a></li>
                 <li><a href="{% url 'about_page_view' %}">About</a></li>
                 <li><a href="{% url 'contact_us_page_view' %}">Contact</a></li>
                 <li><a href="{% url 'search' %}">Search</a></li>
                 {% if user.is_authenticated %}
                     <li><a href='{% url "logout" %}'>Logout</a></li>
-                    <h1> <span style="color: black; "> Welcome, {{user.username}}!</span> </h1>
+                    <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
+                        <div class="site-block-cover-content text-center">
+                            <h1> <span style="color: black; "> Welcome, {{user.username}}!</span> </h1>
+                        </div>
+                    </div>
                 {% endif %}
                 {% if not user.is_authenticated %}
                     <li><a href='{% url "login" %}'>Login</a></li>
@@ -81,17 +83,19 @@
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
 
             <div class="block-7">
-              <h3 class="footer-heading mb-4">{{ aboutus.title }}</h3>
-              <p>{{ aboutus.desc }}</p>
+              <h3 class="footer-heading mb-4">About Us</h3>
+              <p>The Best online drug store!</p>
             </div>
 
           </div>
           <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
             <h3 class="footer-heading mb-4">We Provide</h3>
             <ul class="list-unstyled">
-              {% for item in categories %}
-              <li>{{ item.title }}</li>
-              {% endfor %}
+              <li>Drugs</li>
+              <li>Vitamins</li>
+              <li>Diet & Nutrition</li>
+              <li>Tea & Coffee</li>
+              <li>Cosmetics</li>
             </ul>
           </div>
 
@@ -99,9 +103,9 @@
             <div class="block-5 mb-5">
               <h3 class="footer-heading mb-4">Contact Info</h3>
               <ul class="list-unstyled">
-                <li class="address">{{ address.address }}</li>
-                <li class="phone"><a href="tel://{{ phone.phone }}">{{ phone.phone }}</a></li>
-                <li class="email">{{ email.email }}</li>
+                <li class="address">203 Fake St. Mountain View, San Francisco, California, USA</li>
+                <li class="phone"><a href="tel://+2 392 3929 210">+2 392 3929 210</a></li>
+                <li class="email">examlpe@mail.com</li>
               </ul>
             </div>
           </div>

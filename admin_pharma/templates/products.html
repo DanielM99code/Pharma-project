@@ -28,11 +28,11 @@
                         <button type="button" class="btn btn-primary btn-sm">Edit</button>
                     </a>
                 </div>
-                <div class="col-md-3">Name: {{ item.name }}</div>
+                <div class="col-md-"><b>Name: </b>{{ item.name }}</div>
                 <div class="col-md-3">Order in Shop: {{ item.shop_order }}</div>
                 <div class="col-md-3">Item is visible: {{ item.is_visible }}</div>
-                <div class="col-md-3">Price: {{ item.price }}$</div>
-                <div class="col-md-3">Item Category{{ item.category }}</div>
+                <div class="col-md-3">Price: ${{ item.price }}</div>
+                <div class="col-md-3">Item Category: {{ item.category }}</div>
                 <div class="col-md-3">Material: {{ item.material }}</div>
                 <div class="col-md-3">Packaging: {{ item.packaging }}</div>
                 <div class="col-md-3">HPIS Code: {{ item.hpis_code }}</div>

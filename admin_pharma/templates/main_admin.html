@@ -2,15 +2,12 @@
 
 {% block content %}
     <div class="container">
-        <div class="section-title text-center">
-            <h3>Admin Panel</h3>
-        </div>
-        <div class="col-md-10 col-md-offset-1">
-            <div class="row">
-                <div class="col-md-3"><a href="{% url 'list_of_messages' %}">Messages</a>></div>
-                <div class="col-md-3"><a href="{% url 'list_of_products' %}">Products</a></div>
-                <div class="col-md-3"><a href="{% url 'list_of_categories' %}">Categories</a></div>
-                <div class="col-md-3"><a href="{% url 'list_of_orders' %}">Orders</a></div>
+        <div class="title-section text-center col-12">
+            <div class="row mt-5">
+                <div class="col-md-3"><a href="{% url 'list_of_messages' %}"><button type="button" class="btn btn-primary btn-sm">Messages</button></a></div>
+                <div class="col-md-3"><a href="{% url 'list_of_products' %}"><button type="button" class="btn btn-primary btn-sm">Products</button></a></div>
+                <div class="col-md-3"><a href="{% url 'list_of_categories' %}"><button type="button" class="btn btn-primary btn-sm">Categories</button></a></div>
+                <div class="col-md-3"><a href="{% url 'list_of_orders' %}"><button type="button" class="btn btn-primary btn-sm">Orders</button></a></div>
             </div>
         </div>
     </div>

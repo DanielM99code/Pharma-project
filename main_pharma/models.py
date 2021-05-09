@@ -15,7 +15,7 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    slug = models.SlugField(max_length=200, db_index=True)
+    slug = models.SlugField(max_length=200, db_index=True, unique=True)
     image_full = models.ImageField(upload_to='static/products/full/%Y/%m/%d', blank=True)
     image_small = ResizedImageField(size=[270, 370], upload_to='static/products/small/%Y/%m/%d', blank=True)
     material = models.CharField(max_length=200, blank=True)
@@ -83,39 +83,7 @@ class Testimonials(models.Model):
 
 class Rate(models.Model):
     title = models.CharField(max_length=15, unique=True)
-    photo = models.ImageField(upload_to='rate/%Y/%m/%d')
-    desc = models.CharField(max_length=200, unique=True, default='SOME STRING')
-
-    def __str__(self):
-        return f'{self.title}'
-
-
-class Address(models.Model):
-    address = models.CharField(max_length=100, blank=True)
-    is_visible = models.BooleanField(default=True)
-
-    def __str__(self):
-        return f'{self.address}'
-
-
-class Phone(models.Model):
-    phone = models.CharField(max_length=13, unique=True)
-    is_visible = models.BooleanField(default=True)
-
-    def __str__(self):
-        return f'{self.phone}'
-
-
-class Email(models.Model):
-    email = models.EmailField()
-    is_visible = models.BooleanField(default=True)
-
-    def __str__(self):
-        return f'{self.email}'
-
-
-class AboutUs(models.Model):
-    title = models.CharField(max_length=15, blank=True)
+    photo = models.ImageField(upload_to='static/rate/%Y/%m/%d')
     desc = models.CharField(max_length=200, unique=True, default='SOME STRING')
 
     def __str__(self):
@@ -155,7 +123,6 @@ class Message(models.Model):
     user_email = models.EmailField(blank=True)
     user_subject = models.CharField(max_length=40, blank=True)
     user_message = models.TextField(blank=True)
-
     pub_date = models.DateField(auto_now_add=True, blank=True)
     is_processed = models.BooleanField(default=False, blank=True)
 
