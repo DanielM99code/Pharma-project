@@ -1,5 +1,19 @@
+ENG
+Site of the online-store "Pharma"
+
+This project has implemented:
+   - creating accounts;
+   - the presence of a separate panel for the manager to make changes to the site database;
+   - the ability for users to write a message to the administrator;
+   - functionality for creating a basket and ordering with entry into the database;
+   - sorting of goods by category;
+   - search for goods by name;
+   - the ability to change almost all elements of the site.
+  
+ Author: Misiuk Daniel
+
+RU
 Сайт онлайн-магазина "Pharma"
-Дипломная работа 
 
 В данном проекте реализовано:
   - создание аккаунтов;
@@ -10,4 +24,4 @@
   - поиск товаров по названию;
   - возможность изменять почти все элементы сайта.
   
-  Автор: Мисюк Даниель
+Автор: Мисюк Даниель
