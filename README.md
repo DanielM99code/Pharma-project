@@ -1,5 +1,5 @@
 ENG
-Site of the online-store "Pharma"
+Online-store "Pharma"
 
 This project has implemented:
    - creating accounts;
@@ -13,7 +13,7 @@ This project has implemented:
  Author: Misiuk Daniel
 
 RU
-Сайт онлайн-магазина "Pharma"
+Oнлайн-магазин "Pharma"
 
 В данном проекте реализовано:
   - создание аккаунтов;
