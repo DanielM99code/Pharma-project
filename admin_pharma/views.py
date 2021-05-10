@@ -49,7 +49,7 @@ def list_of_products(request):
 
 class ProductAddView(LoginRequiredMixin, GroupRequiredMixin, SuccessMessageMixin, CreateView):
     login_url = reverse_lazy('login')
-    group_required = ["manager", 'admin']
+    group_required = ['manager', 'admin']
     model = Product
     form_class = ProductForm
     template_name = 'product_add.html'
@@ -59,7 +59,7 @@ class ProductAddView(LoginRequiredMixin, GroupRequiredMixin, SuccessMessageMixin
 
 class ProductDeleteView(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
-    group_required = ["manager", 'admin']
+    group_required = ['manager', 'admin']
     model = Product
     success_url = reverse_lazy('list_of_products')
 
@@ -70,7 +70,7 @@ class ProductDeleteView(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
 class ProductUpdateView(LoginRequiredMixin, GroupRequiredMixin, SuccessMessageMixin, UpdateView):
     login_url = reverse_lazy('login')
-    group_required = ["manager", 'admin']
+    group_required = ['manager', 'admin']
     model = Product
     form_class = ProductForm
     template_name = 'product_update.html'
@@ -87,7 +87,7 @@ def list_of_categories(request):
 
 class CategoryAddView(LoginRequiredMixin, GroupRequiredMixin, SuccessMessageMixin, CreateView):
     login_url = reverse_lazy('login')
-    group_required = ["manager", 'admin']
+    group_required = ['manager', 'admin']
     model = Category
     form_class = CategoryForm
     template_name = 'category_add.html'
@@ -97,7 +97,7 @@ class CategoryAddView(LoginRequiredMixin, GroupRequiredMixin, SuccessMessageMixi
 
 class CategoryDeleteView(DeleteView, LoginRequiredMixin, GroupRequiredMixin):
     login_url = reverse_lazy('login')
-    group_required = ["manager", 'admin']
+    group_required = ['manager', 'admin']
     model = Category
     success_url = reverse_lazy('list_of_categories')
 
@@ -106,9 +106,9 @@ class CategoryDeleteView(DeleteView, LoginRequiredMixin, GroupRequiredMixin):
         return self.post(request, *args, **kwargs)
 
 
-class CategoryUpdateView(LoginRequiredMixin, GroupRequiredMixin, SuccessMessageMixin, CreateView):
+class CategoryUpdateView(LoginRequiredMixin, GroupRequiredMixin, SuccessMessageMixin, UpdateView):
     login_url = reverse_lazy('login')
-    group_required = ["manager", 'admin']
+    group_required = ['manager', 'admin']
     model = Category
     form_class = CategoryForm
     template_name = 'category_update.html'
