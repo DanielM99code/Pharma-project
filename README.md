@@ -1,5 +1,5 @@
 ENG
-Online-store "Pharma"
+Online-store "Pharma" - https://pharma250421.herokuapp.com/
 
 Project implementation tasks:
 
@@ -12,7 +12,7 @@ Project implementation tasks:
  Author: Misiuk Daniel
 
 RU
-Oнлайн-магазин "Pharma"
+Oнлайн-магазин "Pharma" - https://pharma250421.herokuapp.com/
 
 В данном проекте реализовано:
   - создание аккаунтов;
